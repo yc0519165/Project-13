@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Play&family=Poppins:wght@400;500;600&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Ubuntu&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #edeaff;
+  font-family: "Courier Prime", monospace;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.stopWatch {
+  width: 90%;
+  max-width: 600px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(images/background\ img.png);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 40px 0;
+  color: #fff;
+  /* margin: 200px auto 0; */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+.stopWatch h1 {
+  margin-top: 60px;
+  font-size: 64px;
+  font-weight: 300;
+}
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.control img {
+  width: 50px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.control img:nth-child(2) {
+  width: 80px;
+}

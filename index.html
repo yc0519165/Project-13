@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop Watch</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="stopWatch">
+        <h1 id="time">00:00:00:000</h1>
+        <div class="control">
+          <img
+            class="stop"
+            onclick="stopTimer()"
+            src="images/stop.png"
+            alt=""
+          />
+          <img
+            class="start"
+            onclick="startTimer()"
+            src="images/start.png"
+            alt=""
+          />
+          <img
+            class="reset"
+            onclick="resetTimer()"
+            src="images/reset.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      let timer;
+      let milliseconds = 0;
+      let running = false;
+
+      function formatTime(milliseconds) {
+        const hrs = Math.floor(milliseconds / 3600000);
+        const min = Math.floor((milliseconds % 3600000) / 60000);
+        const sec = Math.floor((milliseconds % 60000) / 1000);
+        const ms = milliseconds % 1000;
+
+        return (
+          String(hrs).padStart(2, "0") +
+          ":" +
+          String(min).padStart(2, "0") +
+          ":" +
+          String(sec).padStart(2, "0") +
+          ":" +
+          String(ms).padStart(3, "0")
+        );
+      }
+      function stopTimer() {
+        running = false;
+        clearInterval(timer);
+      }
+      function startTimer() {
+        if (!running) {
+          running = true;
+          timer = setInterval(() => {
+            milliseconds += 10;
+            document.getElementById("time").textContent =
+              formatTime(milliseconds);
+          }, 10);
+        }
+      }
+      function resetTimer() {
+        running = false;
+        clearInterval(timer);
+        milliseconds = 0;
+        document.getElementById("time").textContent = "00:00:00:000";
+      }
+    </script>
+  </body>
+</html>
